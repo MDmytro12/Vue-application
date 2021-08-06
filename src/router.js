@@ -15,7 +15,7 @@ export default new Router({
             }
         },
         {
-            path: '/home',
+            path: '/',
             name: 'home',
             component: () => import('./views/Home.vue'),
             meta: {
