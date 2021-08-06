@@ -94,22 +94,23 @@ export default {
   }) ,
   methods : {
     onSubmit() {
-      console.log(1)
+  
       if(this.$v.$invalid){
         this.$v.$touch()
-        console.log(1.1)
         return
       }
-      console.log(2)
+
       const formData = {
-        email : this.eamil,
+        email : this.email,
         password : this.password,
         name : this.password
       }
-
-      console.log(formData)
-
-      this.$router.push('/login')
+      
+      try{
+        this.$store.dispatch('register' , formData )
+        this.$router.push('/login')
+      }catch (e){}
+      
     }
   }
 }
