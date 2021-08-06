@@ -23,3 +23,13 @@
 </div>
 
 </template>
+
+<script>
+
+export default {
+  name: 'profile',
+  methods:{
+    
+  }  
+}
+</script>
