@@ -30,6 +30,7 @@ export default {
         },
         async logout({dispatch , commit} ){
             await firebase.auth().signOut()
+            commit('clearInfo')
             this.$route.push('/login?message=logout')
         }
     }

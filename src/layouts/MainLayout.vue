@@ -33,6 +33,12 @@ export default {
     },
     data: () => ({
         isOpen : true
-    })
+    }) ,
+    async mounted() {
+        if (this.$store.getters.info){
+           await this.$store.dispatch('getInfo') 
+        }
+        
+    }
 }
 </script>

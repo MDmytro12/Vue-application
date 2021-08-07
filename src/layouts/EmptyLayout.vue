@@ -8,7 +8,7 @@
 import messages from '../utils/messages'
 
 export default {
-    naem: 'empty-layout',
+    name: 'empty-layout',
     computed: {
         error(){
             return this.$store.getters.error
@@ -16,6 +16,7 @@ export default {
     },
     watch:{
         error(fbError){
+            console.log(fbError)
             this.$error(messages[fbError.code] ? messages[fbError.code] : 'Што-то пошло не так!')
         }
     }

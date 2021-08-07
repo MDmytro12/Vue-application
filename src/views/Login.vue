@@ -77,11 +77,9 @@ export default {
             }
             
             try{
-                const rezult = await this.$store.dispatch('login' , formData)
+                await this.$store.dispatch('login' , formData)
 
-                if(rezult){
-                    this.$router.push('/')
-                }
+                this.$router.push('/')
                 
             }catch (e){
             }

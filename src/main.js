@@ -10,9 +10,13 @@ import 'materialize-css/dist/js/materialize.min'
 // filters
 
 import dateFilter from './filters/date.filter.js'
+import currencyFilter from './filters/currency.filter.js'
+
 import firebase from 'firebase'
 import 'firebase/auth'
 import 'firebase/database'
+
+import Loader from './components/Loader'
 
 import 'material-design-icons'
 
@@ -20,8 +24,11 @@ import 'material-design-icons'
 Vue.config.productionTip = false
 
 Vue.filter('date' , dateFilter)
+Vue.filter('currency' , currencyFilter)
 Vue.use(messagePlugin)
 Vue.use(Vuelidate)
+
+Vue.component("Loader",Loader)
 
 firebase.initializeApp({
     apiKey: "AIzaSyDBSNWAn7Ln7M_CJ4U_LU8f7FWp9--Y0I8",

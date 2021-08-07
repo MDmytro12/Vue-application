@@ -82,7 +82,7 @@ export default {
   name: 'register',
   validations:{
     email : {email , required},
-    password : {required , minLength: minLength(8)},
+    password : {required , minLength: minLength(6)},
     name: {required},
     agree: {checked : v => v}
   },
@@ -103,7 +103,7 @@ export default {
       const formData = {
         email : this.email,
         password : this.password,
-        name : this.password
+        name : this.name
       }
       
       try{
