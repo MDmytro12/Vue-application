@@ -77,6 +77,9 @@ export default {
                 
                 this.limit = 100
                 this.title = ''
+                this.$v.$reset()
+                this.$emit('addCategory' , category)
+                this.$message('Добавлено новую категорию!')
             }catch (e){}
         }
     }
