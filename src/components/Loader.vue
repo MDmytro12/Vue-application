@@ -1,5 +1,5 @@
 <template>
-    <div class='app-loader' style="padding-top: 300px;" >
+    <div class='app-loader' style="padding-top: 100px;" >
         <div class="preloader-wrapper big active">
             <div class="spinner-layer" :class="color">
                 <div class="circle-clipper left">

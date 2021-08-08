@@ -44,7 +44,7 @@ const router = new Router({
         },
         {
             path: '/detail-record',
-            name: 'detaile-record',
+            name: 'detaile-record/:id',
             component: () => import('./views/DetailRecord.vue'),
             meta : {
                 layout : 'main',
