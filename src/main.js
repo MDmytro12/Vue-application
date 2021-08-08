@@ -5,6 +5,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import messagePlugin from './utils/message.plugin'
+import tooltipDirective from './directives/tooltip.directive'
 
 import 'materialize-css/dist/js/materialize.min'
 // filters
@@ -27,6 +28,7 @@ Vue.filter('date' , dateFilter)
 Vue.filter('currency' , currencyFilter)
 Vue.use(messagePlugin)
 Vue.use(Vuelidate)
+Vue.directive('tooltip' , tooltipDirective)
 
 Vue.component("Loader",Loader)
 

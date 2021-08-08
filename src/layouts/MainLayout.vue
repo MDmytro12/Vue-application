@@ -1,25 +1,27 @@
 <template>
     <div>
+        <Loader v-if="loading" />
+        <div v-else>
 
-        <NavBar v-on:click="isOpen = !isOpen" />
+            <NavBar v-on:click="isOpen = !isOpen" />
 
-        <SideBar v-model="isOpen" />
+            <SideBar v-model="isOpen" />
 
-        <div class="app-main-layout">
-            <main class="app-content" :class="{full : isOpen }">
-                <div class="app-page">
-                    <router-view />
+            <div class="app-main-layout">
+                <main class="app-content" :class="{full : isOpen }">
+                    <div class="app-page">
+                        <router-view />
+                    </div>
+                </main>
+
+                <div class="fixed-action-btn">
+                    <a class="btn-floating btn-large blue" href="#">
+                        <i class="large material-icons">add</i>
+                    </a>
                 </div>
-            </main>
-
-            <div class="fixed-action-btn">
-                <a class="btn-floating btn-large blue" href="#">
-                    <i class="large material-icons">add</i>
-                </a>
             </div>
         </div>
     </div>
-
 </template>
 
 <script>
@@ -32,11 +34,14 @@ export default {
         SideBar , NavBar
     },
     data: () => ({
-        isOpen : true
+        isOpen : true,
+        loading: true
+
     }) ,
     async mounted() {
         if (this.$store.getters.info){
            await this.$store.dispatch('getInfo') 
+           this.loading = false
         }
         
     }

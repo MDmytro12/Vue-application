@@ -41,6 +41,7 @@
 </template>
 
 <script>
+import firebase from 'firebase/app'
     export default {
         data: () => ({
             date : new Date(),
@@ -49,7 +50,7 @@
         }),
         methods: {
             logout(){
-                
+                firebase.auth().signOut()
                 this.$router.push('/login?message=logout')
             }
         },

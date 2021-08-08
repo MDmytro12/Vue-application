@@ -136,22 +136,22 @@ export default {
     } 
     } ,
     methods: {
-      async onSubmitHandler(){                                
+      async onSubmitHandler(){                      
         if(this.$v.$invalid){
           this.$v.$touch()
           return
         }
-
+      
         if(this.canCreateRecord){
+
           try{
             await this.$store.dispatch('createRecord' , {
             categoryId : this.category ,
             amount: this.amount,
             description: this.description , 
             type : this.type ,
-            date : new Date().toJOSN()
+            date : new Date().toString()
           })
-
           const bill = this.type === 'income' ?
             this.info.bill + this.amount 
             :
@@ -166,7 +166,7 @@ export default {
           
         }else{
           this.$message(`Недостаточно средств на счете , не достаточно ${this.amount - this.info.bill}`)}
-          }
+        }
       }
 }
 </script>

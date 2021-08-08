@@ -22,11 +22,11 @@
         ],
         data: () => ({
             links:[
-                {title : 'Счет' , url : '/' , exact : true},
-                {title : 'История' , url : '/history'},
-                {title : 'Планирование' , url : '/planning'},
-                {title : 'Новая запись' , url : '/record'},
-                {title : 'Категории' , url : '/categories'}
+                {title : 'Рахунок' , url : '/' , exact : true},
+                {title : 'Історія' , url : '/history'},
+                {title : 'Планування' , url : '/planning'},
+                {title : 'Новий запис' , url : '/record'},
+                {title : 'Категорія' , url : '/categories'}
             ]
         })
     }

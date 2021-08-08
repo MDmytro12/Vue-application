@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import firebase from 'firebase/app'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
     mode : 'history',
     routes : [
         {
@@ -19,14 +20,16 @@ export default new Router({
             name: 'home',
             component: () => import('./views/Home.vue'),
             meta: {
-                layout: 'main'
+                layout: 'main',
+                auth : true
             }
         },
         {
             path: '/history',
             name: 'history',
             meta : {
-                layout: 'main'
+                layout: 'main',
+                auth: true
             },
             component: () => import('./views/History.vue')
         },
@@ -34,7 +37,8 @@ export default new Router({
             path: '/categories',
             name: 'categories',
             meta:{
-                layout: 'main'
+                layout: 'main',
+                auth: true
             },
             component: () => import('./views/Categories.vue')
         },
@@ -43,14 +47,16 @@ export default new Router({
             name: 'detaile-record',
             component: () => import('./views/DetailRecord.vue'),
             meta : {
-                layout : 'main'
+                layout : 'main',
+                auth: true
             }
         },
         {
             path: '/planning',
             name: 'planning',
             meta : {
-                layout: 'main'
+                layout: 'main',
+                auth: true
             },
             component: () => import('./views/Planning.vue')
         },
@@ -58,7 +64,8 @@ export default new Router({
             path: '/profile' ,
             name: 'profile',
             meta: {
-                layout: 'main'
+                layout: 'main',
+                auth: true
             },
             component: () => import('./views/Profile.vue')
         },
@@ -66,7 +73,8 @@ export default new Router({
             path: '/record',
             name : 'record',
             meta : {
-                layout: 'main'
+                layout: 'main',
+                auth: true
             },
             component: () => import('./views/Record.vue')
         },
@@ -80,3 +88,12 @@ export default new Router({
         }
     ]
 })
+
+router.beforeEach(( to , from , next ) => {
+    const currentUser = firebase.auth().currentUser
+    const requireAuth = to.matched.some( record => record.meta.auth )
+    console.log(currentUser , requireAuth)
+    next()
+})
+
+export default router

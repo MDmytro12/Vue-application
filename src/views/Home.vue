@@ -47,7 +47,6 @@ export default {
       this.loading = true
       this.curency = await this.$store.dispatch('getCurrencyInfo')
       this.loading = false
-      console.log(this.curency)
     }
   }
 }

@@ -1,5 +1,4 @@
 <template>
-   
     <div class="col s12 m6 l4">
       <div class="card light-blue bill-card">
         <div class="card-content white-text">
@@ -13,7 +12,7 @@
           </p>
         </div>
       </div>
-    </div>
+    </div>    
 </template>
 
 <script>
@@ -21,7 +20,8 @@ export default {
     name:'home-bill',
     props: ['rates'],
     data: () => ({
-        currencies : ["USD" , "EUR" , "RUB"]
+        currencies : ["USD" , "EUR" , "RUB"],
+        loading: true
     }) ,
     computed:{
         base() {
@@ -32,6 +32,6 @@ export default {
         getCurrency(currency){
                 return Math.floor( this.base * this.rates[currency] )
         }
-    }
+    } 
 }
 </script>
