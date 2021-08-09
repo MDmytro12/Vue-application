@@ -15,7 +15,17 @@
         <section v-else>
             
             <Table
-                :records="records"
+                :records="items"
+             />
+
+             <Paginate 
+                v-model="page"
+                :page-count="pageCount"
+                :click-handler="onPageHandler"
+                :prev-text="'Назад'"
+                :next-text="'Вперед'"
+                :container-class="'pagination center'"
+                :page-class="'waves-effect'"
              />
 
         </section>
@@ -24,6 +34,7 @@
 
 <script>
 import Table from '../components/Table.vue'
+import paginationMixin from "../mixins/paginations.mixin"
 
 export default {
     name: 'history',
@@ -31,23 +42,27 @@ export default {
         loading : true,
         records: []
     }),
+    mixins: [paginationMixin] ,
     components : {
         Table
     },
     async mounted() {
-       const records = await this.$store.dispatch('getRecords')
-       const categories = await this.$store.dispatch('fetchCategories')
-       this.records = records.map( record => {
+        const categories = await this.$store.dispatch('fetchCategories')
+        const records = (await this.$store.dispatch('getRecords')).map( record => {
            return {
                ...record ,
                typeClass: record.type === "outcome" ? "red" : 'green',
                typeName: record.type === "outcome" ? "Витрати" : "Дохід" ,
-               categoryName: categories.filter( c => c.id === record.categoryId ).title 
+               categoryName: categories.filter( category => {
+                   return category.id.trim() === record.categoryId.trim()
+               } )[0].title
            }
-       } ) 
+       })
+       this.records = records
+       this.setupPagination( this.records )
     
        this.loading = false
-    },
+    }
 }
 </script>
 

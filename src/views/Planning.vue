@@ -59,7 +59,7 @@ import currencyFilter from '../filters/currency.filter'
             const progressColor = percent < 60 ? 'green' : percent < 100 ? 'yellow' : 'red'
 
             const tooltip = cat.limit - spend
-            console.log(tooltip)
+    
             const tooltipValue = tooltip < 0 ? `Ви перевищили ліміт на ${currencyFilter(Math.abs(tooltip))}!` : `У вас залишилось ${currencyFilter(tooltip)}!`
 
             return {

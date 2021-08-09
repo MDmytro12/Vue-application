@@ -18,6 +18,7 @@ import 'firebase/auth'
 import 'firebase/database'
 
 import Loader from './components/Loader'
+import Paginate from 'vuejs-paginate'
 
 import 'material-design-icons'
 
@@ -31,6 +32,7 @@ Vue.use(Vuelidate)
 Vue.directive('tooltip' , tooltipDirective)
 
 Vue.component("Loader",Loader)
+Vue.component("Paginate" , Paginate)
 
 firebase.initializeApp({
     apiKey: "AIzaSyDBSNWAn7Ln7M_CJ4U_LU8f7FWp9--Y0I8",
