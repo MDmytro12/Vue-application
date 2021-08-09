@@ -45,5 +45,16 @@
     "HC_currencyCourse": "The currency rate" ,
     "HB_currency":"Currency",
     "HB_course": "Course",
-    "detail" : "Read detail information !"
+    "detail" : "Read detail information !" ,
+    "d":"Detail record" ,
+    "login": "Login" ,
+    "registry": "Register",
+    "L_homeAc": "Home accounting ",
+    "emial": "Email",
+    "L_emptyField": "Dot`n leave field empty!",
+    "L_emailWithoutMis":"Enter your email without mistakes!",
+    "L_passwordLength": "Password length must be mroe then ",
+    "L_login":"Sign in",
+    "L_notaccount":"You didn`t have account ",
+    "L_reg": "Sign up!"
 }

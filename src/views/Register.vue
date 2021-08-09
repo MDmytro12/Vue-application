@@ -92,6 +92,11 @@ export default {
     name : '' ,
     agree : false
   }) ,
+  metaInfo(){
+        return {
+            title : this.$title("registry")
+        }
+      },
   methods : {
     onSubmit() {
   

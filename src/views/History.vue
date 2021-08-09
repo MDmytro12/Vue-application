@@ -44,6 +44,11 @@ export default {
         loading : true,
         records: []
     }),
+    metaInfo(){
+        return {
+            title : this.$title("SB_history")
+        }
+    },
     extends: Pie ,
     mixins: [paginationMixin ] ,
     components : {

@@ -50,6 +50,11 @@ export default {
     name : '' ,
     isUK: true
   }) ,
+  metaInfo(){
+    return {
+      title : this.$title("Profile_title")
+    }
+  },
   validations: {
     name: {required}
   } ,

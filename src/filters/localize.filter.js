@@ -8,7 +8,11 @@ const locales = {
 }
 
 export default function localizeFilter(key){
-    const locale = store.getters.info.location.trim()
-    
-    return locales[locale][key] || "[Locale error] key " + key + " not found!"
+    try{
+        const locale = store.getters.info.location.trim()
+        return locales[locale][key] || "[Locale error] key " + key + " not found!"
+    }catch (e){
+        const locale = "uk-UK"
+        return locales[locale][key] || "[Locale error] key " + key + " not found!"
+    } 
 }

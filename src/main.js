@@ -3,7 +3,9 @@ import Vuelidate from 'vuelidate'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import VueMeta from 'vue-meta'
 import messagePlugin from './utils/message.plugin'
+import titlePlugin from './utils/title.plugin'
 import tooltipDirective from './directives/tooltip.directive'
 import 'materialize-css/dist/js/materialize.min'
 import dateFilter from './filters/date.filter.js'
@@ -20,7 +22,9 @@ import 'material-design-icons'
 Vue.config.productionTip = false
 
 Vue.use(messagePlugin)
+Vue.use(titlePlugin)
 Vue.use(Vuelidate)
+Vue.use(VueMeta)
 
 Vue.directive('tooltip' , tooltipDirective)
 

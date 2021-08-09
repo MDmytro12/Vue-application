@@ -34,7 +34,7 @@ export default {
         SideBar , NavBar
     },
     data: () => ({
-        isOpen : true,
+        isOpen : false,
         loading: true
     }) ,
     async mounted() {

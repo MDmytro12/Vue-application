@@ -35,6 +35,11 @@ export default {
     CategoryEdit , CategoryCreate,
     Loader
   },
+  metaInfo(){
+    return {
+      title : this.$title("SB_category")
+    }
+  },
   data: () => ({
     categories: [] ,
     loading: true ,

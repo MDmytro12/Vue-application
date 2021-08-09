@@ -42,6 +42,11 @@ import localeFilter from '../filters/localize.filter'
         records : [] , 
         categories: [] 
       }),
+      metaInfo(){
+        return {
+            title : this.$title("SB_planning")
+        }
+      },
       async mounted(){
         const records = await this.$store.dispatch('getRecords')
         const categories = await this.$store.dispatch('fetchCategories') || []

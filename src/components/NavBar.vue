@@ -23,7 +23,7 @@
                     <ul id='dropdown' class='dropdown-content'>
                     <li>
                         <router-link to='/profile' class="black-text">
-                        <i class="material-icons">account_circle</i>Профиль
+                            <i class="material-icons">account_circle</i>Профиль
                         </router-link>
                     </li>
                     <li class="divider" tabindex="-1"></li>
@@ -58,7 +58,9 @@ import firebase from 'firebase/app'
             this.interval = setInterval( () => {
                 this.date = new Date()
             }  , 1000 )
-            this.dropdown = M.Dropdown.init(this.$refs.dropdown , { constrainWidth : true })
+            
+            this.dropdown = M.Dropdown.init(this.$refs.dropdown )
+        
         },
         beforeDestroy(){
             clearInterval(this.interval)

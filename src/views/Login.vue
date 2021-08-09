@@ -1,7 +1,7 @@
 <template>
     <form class="card auth-card" @submit.prevent ="onSubmit">
         <div class="card-content">
-            <span class="card-title">Домашняя бухгалтерия</span>
+            <span class="card-title">{{ "L_homeAc" | locale}}</span>
             <div class="input-field">
                 <input
                     id="email"
@@ -12,11 +12,11 @@
                 <label for="email">Email</label>
                 <small 
                     v-if="$v.email.$dirty && !$v.email.required"
-                class="helper-text invalid">Не оставляйте поле пустим!</small>
+                class="helper-text invalid">{{ "L_emptyField" | locale}}</small>
 
                 <small 
                     v-else-if="$v.email.$dirty && !$v.email.email"
-                class="helper-text invalid">Введите свой emial без ошибок!</small>
+                class="helper-text invalid">{{ "L_emailWithoutMis" | locale}}</small>
             </div>
             <div class="input-field">
                 <input
@@ -28,10 +28,10 @@
                 <label for="password">Пароль</label>
                 <small 
                     v-if="$v.password.$dirty && !$v.password.required"
-                class="helper-text invalid">Не оставляйте поле пустим!</small>
+                class="helper-text invalid">{{ "L_emptyField" | locale}}</small>
                 <small 
                     v-else-if="$v.password.$dirty && !$v.password.minLength"
-                class="helper-text invalid">Пароль должен бить длиной не менше {{$v.password.$params.minLength.min}} символов , а сейчас {{password.length}} ! </small>
+                class="helper-text invalid">{{ "L_passwordLength" | locale}} {{$v.password.$params.minLength.min}} символов , а сейчас {{password.length}} ! </small>
             </div>
         </div>
         <div class="card-action">
@@ -40,13 +40,13 @@
                 class="btn waves-effect waves-light auth-submit"
                 type="submit"
             >
-                Войти
+                {{ "login" | locale}}
                 <i class="material-icons right">send</i>
             </button>
             </div>
             <p class="center">
-            Нет аккаунта?
-            <router-link to="/register">Зарегистрироваться</router-link>
+            {{ "L_notaccount" | locale}}
+            <router-link to="/register">{{ "L_reg" | locale}}</router-link>
             </p>
         </div>
     </form>
@@ -61,6 +61,11 @@ export default {
     mounted() {
         if(messages[this.$route.query.message]){
             this.$message( messages[this.$route.query.message] )
+        }
+    },
+    metaInfo(){
+        return {
+            title : this.$title("SB_log")
         }
     },
     methods:{
