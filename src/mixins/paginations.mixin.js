@@ -16,7 +16,6 @@ export default {
             
         },
         onPageHandler(page){
-            console.log(this.$route.query)
             this.$router.push(`${this.$route.path}?page=${page}`)
             this.items = this.allItems[page- 1] || this.allItems[0]
 
