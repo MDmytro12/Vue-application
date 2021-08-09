@@ -42,8 +42,8 @@
     "T_type": "Type",
     "T_open": "Open",
     "HB_billWithCurrency": "The bill with currency",
-    "HC_currencyCourse": "The currency course" ,
+    "HC_currencyCourse": "The currency rate" ,
     "HB_currency":"Currency",
-    "HB_course": "Course"
-    
+    "HB_course": "Course",
+    "detail" : "Read detail information !"
 }

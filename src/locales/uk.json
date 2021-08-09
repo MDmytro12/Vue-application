@@ -44,5 +44,6 @@
     "HB_billWithCurrency": "Рахунок в валюті",
     "HC_currencyCourse": "Курс валют" ,
     "HB_currency":"Валюта",
-    "HB_course": "Курс"
+    "HB_course": "Курс",
+    "detail" : "Прочитайье детальну інформацію!"
 }

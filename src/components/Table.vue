@@ -27,7 +27,7 @@
                 <button
                  class="btn-small btn" 
                  @click="$router.push('/detail-record/'+r.id)"
-                 v-tooltip="'Прочитайте детальну інформацію!'"
+                 v-tooltip="$store.getters.info.location.trim() === 'en-EN' ? 'Read detail information !' : 'Прочитайье детальну інформацію!'"
                  >
                     <i class="material-icons">open_in_new</i>
                 </button>
@@ -38,6 +38,7 @@
 </template>
 
 <script>
+
 export default {
     name : 'table' ,
     props: {
