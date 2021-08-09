@@ -1,4 +1,3 @@
-
 import Vue from 'vue'
 import Vuelidate from 'vuelidate'
 import App from './App.vue'
@@ -6,33 +5,31 @@ import router from './router'
 import store from './store'
 import messagePlugin from './utils/message.plugin'
 import tooltipDirective from './directives/tooltip.directive'
-
 import 'materialize-css/dist/js/materialize.min'
-// filters
-
 import dateFilter from './filters/date.filter.js'
 import currencyFilter from './filters/currency.filter.js'
-
+import localeFilter from './filters/localize.filter'
 import firebase from 'firebase'
 import 'firebase/auth'
 import 'firebase/database'
-
 import Loader from './components/Loader'
 import Paginate from 'vuejs-paginate'
-
 import 'material-design-icons'
 
 
 Vue.config.productionTip = false
 
-Vue.filter('date' , dateFilter)
-Vue.filter('currency' , currencyFilter)
 Vue.use(messagePlugin)
 Vue.use(Vuelidate)
+
 Vue.directive('tooltip' , tooltipDirective)
 
 Vue.component("Loader",Loader)
 Vue.component("Paginate" , Paginate)
+
+Vue.filter('date' , dateFilter)
+Vue.filter('currency' , currencyFilter)
+Vue.filter('locale' , localeFilter)
 
 firebase.initializeApp({
     apiKey: "AIzaSyDBSNWAn7Ln7M_CJ4U_LU8f7FWp9--Y0I8",

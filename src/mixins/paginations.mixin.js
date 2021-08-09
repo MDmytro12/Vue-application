@@ -2,7 +2,7 @@ import _ from 'lodash'
 
 export default {
     data: () => ({
-        page: 1 ,
+        page: 1  ,
         pageSize : 5 ,
         pageCount: 0,
         allItems : [] ,

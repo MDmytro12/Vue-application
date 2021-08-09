@@ -1,12 +1,12 @@
 <template>
   <div>
     <div class="page-title">
-      <h3>Новая запись</h3>
+      <h3>{{"R_newRecord" | locale}}</h3>
     </div>
 
     <Loader v-if="loading"/>
 
-    <p v-else-if="!categories.length" class='center'>Список категорий пуст! <router-link to='/categories'>Добавьте новую категорию!</router-link></p>
+    <p v-else-if="!categories.length" class='center'>{{"R_emptyList" | locale}} <router-link to='/categories'>{{"R_addNewCategory" | locale}}</router-link></p>
 
     <form v-else class="form" @submit.prevent="onSubmitHandler">
       <div class="input-field" >
@@ -17,7 +17,7 @@
           :value="c.id"
           >{{ c.title }}</option>
         </select>
-        <label>Выберите категорию</label>
+        <label>{{"CE_chooseCategories" | locale}}</label>
       </div>
 
       <p>
@@ -29,7 +29,7 @@
               value="income"
               v-model="type"
           />
-          <span>Доход</span>
+          <span>{{"R_income" | locale}}</span>
         </label>
       </p>
 
@@ -42,7 +42,7 @@
               value="outcome"
               v-model="type"
           />
-          <span>Расход</span>
+          <span>{{"R_outcome" | locale}}</span>
         </label>
       </p>
 
@@ -53,11 +53,11 @@
             v-model="amount"
             :class="{invalid : ($v.amount.$dirty && !$v.amount.minValue)}"
         >
-        <label for="amount">Сумма</label>
+        <label for="amount">{{"R_amount" | locale}}</label>
         <span
               v-if="$v.amount.$dirty && !$v.amount.minValue"
                class="helper-text invalid">
-               Минимальное значение {{$v.amount.$params.minValue.min }} !
+               {{"C_minimum" | locale}} {{$v.amount.$params.minValue.min }} !
                </span>
       </div>
 
@@ -68,16 +68,16 @@
             v-model="description"
             :class="{ invalid : $v.description.$dirty && !$v.description.required }"
         >
-        <label for="description">Описание</label>
+        <label for="description">{{"R_description" | locale}}</label>
         <span
                 v-if="$v.description.$dirty && !$v.description.required"
                class="helper-text invalid">
-               Введите описание!
+               {{"R_inputDescription" | locale}}
                </span>
       </div>
 
       <button class="btn waves-effect waves-light" type="submit">
-        Создать
+        {{"create" | locale}}
         <i class="material-icons right">send</i>
       </button>
     </form>

@@ -1,7 +1,7 @@
 <template>
     <div>
   <div class="page-title">
-    <h3>Категории</h3>
+    <h3>{{'C_categories' | locale}}</h3>
   </div>
   <section>
 
@@ -18,7 +18,7 @@
         v-bind:key="categories.length + updateCounter"
         v-if="categories.length"
         />
-        <p class='center' v-else>Категорий пока нету!</p>
+        <p class='center' v-else>{{"C_notCategory" | locale}}</p>
     </div>
   </section>
 </div>
@@ -42,7 +42,6 @@ export default {
   }),
   async mounted(){
     try{
-      console.log('Here')
       const cat = await this.$store.dispatch('fetchCategories')
       this.loading = false
       

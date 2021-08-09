@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="page-title">
-            <h3>История записей</h3>
+            <h3>{{"H_historyRecord" | locale}}</h3>
         </div>
 
         <div class="history-chart">
@@ -10,7 +10,7 @@
 
         <Loader v-if="loading" />
 
-        <p class="center" v-else-if="!records.length">Поки що список записів пустий! <router-link to='/record'>Створіть новий запис!</router-link></p>
+        <p class="center" v-else-if="!records.length">{{"H_emptyList" | locale}} <router-link to='/record'>{{"H_createNew" | locale }}</router-link></p>
 
         <section v-else>
             
@@ -22,8 +22,8 @@
                 v-model="page"
                 :page-count="pageCount"
                 :click-handler="onPageHandler"
-                :prev-text="'Назад'"
-                :next-text="'Вперед'"
+                :prev-text="'H_back' | locale"
+                :next-text="'H_forward' | locale"
                 :container-class="'pagination center'"
                 :page-class="'waves-effect'"
              />
@@ -36,6 +36,7 @@
 import Table from '../components/Table.vue'
 import paginationMixin from "../mixins/paginations.mixin"
 import {Pie} from 'vue-chartjs'
+import localizeFilter from '../filters/localize.filter'
 
 export default {
     name: 'history',
@@ -54,7 +55,7 @@ export default {
            return {
                ...record ,
                typeClass: record.type === "outcome" ? "red" : 'green',
-               typeName: record.type === "outcome" ? "Витрати" : "Дохід" ,
+               typeName: record.type === "outcome" ? localizeFilter("R_outcome") : localizeFilter("R_income") ,
                categoryName: categories.filter( category => {
                    return category.id.trim() === record.categoryId.trim()
                } )[0].title
@@ -73,7 +74,7 @@ export default {
             {
                 labels: categories.map( c => c.title ) ,
                 datasets: [{
-                    label: 'Витрати по категоріям!',
+                    label: localizeFilter("H_outcomeByCategories"),
                     data: categories.map( c => {
                         return this.records.reduce(( total , record ) => {
                             if ( c.id === record.categoryId  && record.type === 'outcome') {
@@ -109,7 +110,6 @@ export default {
                 }
             }   
             )
-                
         }
     }
 }

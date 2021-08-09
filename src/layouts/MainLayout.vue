@@ -1,7 +1,7 @@
 <template>
     <div>
         <Loader v-if="loading" />
-        <div v-else>
+        <div v-else  :key="$store.getters.info.location">
 
             <NavBar v-on:click="isOpen = !isOpen" />
 
@@ -15,9 +15,9 @@
                 </main>
 
                 <div class="fixed-action-btn">
-                    <a class="btn-floating btn-large blue" href="#">
+                    <router-link class="btn-floating btn-large blue" to="/record">
                         <i class="large material-icons">add</i>
-                    </a>
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -29,14 +29,13 @@ import NavBar from '../components/NavBar.vue'
 import SideBar from '../components/SideBar.vue'
 
 export default {
-    name : 'main-layout',
+    name : 'mai-layout',
     components:{
         SideBar , NavBar
     },
     data: () => ({
         isOpen : true,
         loading: true
-
     }) ,
     async mounted() {
         if (this.$store.getters.info){

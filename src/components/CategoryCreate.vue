@@ -2,7 +2,7 @@
     <div class="col s12 m6">
         <div>
           <div class="page-subtitle">
-            <h4>Создать</h4>
+            <h4>{{"CC_create" | locale}}</h4>
           </div>
 
           <form @submit.prevent="onSubmitHandler">
@@ -13,11 +13,11 @@
                   v-model="title"
                   :class="{ invalid : $v.title.$dirty && !$v.title.required }"
               >
-              <label for="name"></label>
+              <label for="name">{{"CC_categoryName" | locale}}</label>
               <span
                 v-if="$v.title.$dirty && !$v.title.required"
                class="helper-text invalid">
-               Введите название категории!
+               {{"CC_inputCategoryName" | locale}}
                </span>
             </div>
 
@@ -28,16 +28,16 @@
                   v-model="limit"
                   :class="{ invalid : ($v.limit.$dirty && !$v.limit.minValue) }"
               >
-              <label for="limit">Лимит</label>
+              <label for="limit">{{"limit" | locale}}</label>
               <span
               v-if="$v.limit.$dirty && !$v.limit.minValue"
                class="helper-text invalid">
-               Минимальная величина {{this.$v.limit.$params.minValue.min }} !
+               {{"CE_minimum" | locale}} {{this.$v.limit.$params.minValue.min }} !
                </span>
             </div>
 
             <button class="btn waves-effect waves-light" type="submit">
-              Создать
+              {{"create" | locale}}
               <i class="material-icons right">send</i>
             </button>
           </form>

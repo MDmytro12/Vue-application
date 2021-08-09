@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="page-title">
-      <h3>Планування</h3>
+      <h3>{{"P_planning" | locale}}</h3>
       <h4>{{ info.bill | currency("RUB") }}</h4>
     </div>
 
     <Loader v-if="loading" />
 
-    <p class="center" v-else-if="!categories.length">Наданий момент список категорій пустий! <router-link to="/categories">Створіть нову категорію!</router-link></p>
+    <p class="center" v-else-if="!categories.length">{{"R_emptyList" | locale}} <router-link to="/categories">{{"R_addNewCategory" | locale}}</router-link></p>
 
     <section v-else>
       <div
@@ -33,6 +33,7 @@
 <script>    
 import {mapGetters} from 'vuex'
 import currencyFilter from '../filters/currency.filter'
+import localeFilter from '../filters/localize.filter'
 
   export default {
       name : 'planning' ,
@@ -60,7 +61,7 @@ import currencyFilter from '../filters/currency.filter'
 
             const tooltip = cat.limit - spend
     
-            const tooltipValue = tooltip < 0 ? `Ви перевищили ліміт на ${currencyFilter(Math.abs(tooltip))}!` : `У вас залишилось ${currencyFilter(tooltip)}!`
+            const tooltipValue = tooltip < 0 ? localeFilter("P_exceed") + `${currencyFilter(Math.abs(tooltip))}!` : localeFilter("P_left")+ `${currencyFilter(tooltip)}!`
 
             return {
               ...cat ,

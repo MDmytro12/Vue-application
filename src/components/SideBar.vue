@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import localizeFilter from '../filters/localize.filter'
 
     export default {
         props:[
@@ -22,11 +23,11 @@
         ],
         data: () => ({
             links:[
-                {title : 'Рахунок' , url : '/' , exact : true},
-                {title : 'Історія' , url : '/history'},
-                {title : 'Планування' , url : '/planning'},
-                {title : 'Новий запис' , url : '/record'},
-                {title : 'Категорія' , url : '/categories'}
+                {title : localizeFilter("SB_bill") , url : '/' , exact : true},
+                {title : localizeFilter("SB_history") , url : '/history'},
+                {title : localizeFilter("SB_planning") , url : '/planning'},
+                {title :  localizeFilter("SB_newRecord"), url : '/record'},
+                {title : localizeFilter("SB_category"), url : '/categories'}
             ]
         })
     }
